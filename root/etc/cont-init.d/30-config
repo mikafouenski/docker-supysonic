@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv sh
+
+[[ -e /config/supysonic.db ]] || sqlite3 /config/supysonic.db < /app/sqlite.sql
+
+# permissions
+chown -R appuser:appuser /app /etc/supysonic /config/supysonic.db 
+
