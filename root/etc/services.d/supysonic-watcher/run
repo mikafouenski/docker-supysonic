@@ -2,6 +2,7 @@
 
 umask 022
 
-exec s6-setuidgid appuser \
-   supysonic-watcher
+[[ ${WATCHER:-1} -eq 1 ]] && \
+    exec s6-setuidgid appuser \
+       supysonic-watcher
 

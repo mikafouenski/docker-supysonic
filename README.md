@@ -9,6 +9,7 @@ docker create \
     -p 8000:8000 \
     -e PUID=<UID> -e PGID=<GID> \
     -e WORKERS=<nbthread> \ 
+    -e WATCHER=0 \ 
     -v </path/to/appdata>:/config \
     -v <path/to/music>:/music:ro \
     mikafouenski/supysonic
@@ -20,6 +21,7 @@ docker create \
 * `-e PGID` for for GroupID, default 2000 - see below for explanation
 * `-e PUID` for for UserID, default 2000 - see below for explanation
 * `-e WORKERS` for the number of threads, default 4
+* `-e WATCHER` start the supysonic watcher processus to refresh librairy automaticaly. default = 1 (run it !)
 
 Docker-compose exemple :
 ```
