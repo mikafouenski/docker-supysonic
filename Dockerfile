@@ -28,6 +28,9 @@ RUN apk add --no-cache --virtual .sqlite \
         mpg123 \
         vorbis-tools \
         lame && \
+    mkdir /app && \
+    curl -o /app/sqlite.sql https://raw.githubusercontent.com/spl0k/supysonic/master/schema/sqlite.sql && \
+    curl -o /app/app.py https://raw.githubusercontent.com/spl0k/supysonic/master/cgi-bin/supysonic.wsgi && \
     rm -rf /tmp/* /root/.cache
 
 ADD root/ /
